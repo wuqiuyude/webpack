@@ -69,6 +69,24 @@ module.exports = {
         },
       ],
     },
+    appType: {
+      when: 'isNotTest',
+      type: 'list',
+      message: 'choose a type of app',
+      choices: [
+        {
+          name: 'a single page app',
+          value: 'spa',
+          short: 'spa',
+        },
+        {
+          name:
+            'a multipage app',
+          value: 'multipage',
+          short: 'multipage',
+        },
+      ],
+    },
     router: {
       when: 'isNotTest',
       type: 'confirm',
@@ -81,6 +99,26 @@ module.exports = {
     isMobile:{
       type: 'confirm',
       message: 'is Mobile project?'
+    },
+    scss:{
+      type: 'confirm',
+      message: 'Use scss?'
+    },
+    axios: {
+      type: 'axios',
+      message: 'Use axios'
+    },
+    'yx-vue-ui': {
+      type: 'yx-vue-ui',
+      message: 'Use youxuan vue ui'
+    },
+    'yx-util': {
+      type: 'yx-util',
+      message: 'Use youxuan utils'
+    },
+    sensor: {
+      type: 'sensor',
+      message: 'Use sensor'
     },
     lint: {
       when: 'isNotTest',
@@ -178,7 +216,12 @@ module.exports = {
     'test/unit/setup.js': "unit && runner === 'jest'",
     'test/e2e/**/*': 'e2e',
     'src/router/**/*': 'router',
-    'src/vuex/store.js': 'vuex'
+    'src/vuex/store.js': 'vuex',
+    'src/style/_variables.scss': 'scss',
+    'src/utils/request.js': 'axios',
+    'src/utils/index.js': 'sensor',
+    'src/pages/**/*': "appType === 'spa'",
+    'src/module/**/*': "appType === 'mutilpage'"
   },
   complete: function(data, { chalk }) {
     const green = chalk.green

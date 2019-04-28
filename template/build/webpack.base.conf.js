@@ -19,11 +19,18 @@ function resolve (dir) {
   }
 }){{/lint}}
 
+{{#if_eq appType "spa"}}
+const entry = {
+    app: './src/main.js'
+}
+{{/if_eq}}
+{{#if_eq appType "multipage"}}
+let entry = utils.getEntries('./src/module/**/*.js')
+{{/if_eq}}
+
 module.exports = {
   context: path.resolve(__dirname, '../'),
-  entry: {
-    app: './src/main.js'
-  },
+  entry: entry,
   output: {
     path: config.build.assetsRoot,
     filename: '[name].js',
@@ -78,7 +85,12 @@ module.exports = {
           limit: 10000,
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
-      }
+      }{{#scss}},
+      {
+        test: /\.scss$/,
+        include: '/src',
+        loader: ['css-loader', 'sass-loader', 'style-loader']
+      }{{/scss}}
     ]
   },
   node: {

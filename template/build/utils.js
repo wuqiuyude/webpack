@@ -67,7 +67,13 @@ exports.cssLoaders = function (options) {
     postcss: generateLoaders(),
     less: generateLoaders('less'),
     sass: generateLoaders('sass', { indentedSyntax: true }),
-    scss: generateLoaders('sass'),
+    scss: generateLoaders('sass'){{#isMobile}}.concat(
+      {
+        loader: 'sass-resources-loader',
+        options: {
+          resources: path.resolve(__dirname, '../src/style/_variables.scss')
+        }
+    }){{/isMobile}},
     stylus: generateLoaders('stylus'),
     styl: generateLoaders('stylus')
   }
@@ -106,3 +112,20 @@ exports.createNotifierCallback = () => {
     })
   }
 }
+{{#if_eq appTypw "multipage"}}
+exports.getEntries = function (globPath) {
+  var entries = {}
+  if (globPath.indexOf('.js') >= 0) {
+      glob.sync(globPath).forEach(function (entry) {
+      var basename = path.basename(entry, path.extname(entry), 'router.js')
+      entries[basename] = ['babel-polyfill', entry]
+      });
+  } else {
+      glob.sync(globPath).forEach(function (entry) {
+      var basename = path.basename(entry, path.extname(entry), 'router.js')
+      entries[basename] = entry
+      });
+  }
+  return entries;
+}
+{{/if_eq}}
