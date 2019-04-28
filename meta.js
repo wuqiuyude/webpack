@@ -105,19 +105,19 @@ module.exports = {
       message: 'Use scss?'
     },
     axios: {
-      type: 'axios',
+      type: 'confirm',
       message: 'Use axios'
     },
     'yx-vue-ui': {
-      type: 'yx-vue-ui',
+      type: 'confirm',
       message: 'Use youxuan vue ui'
     },
     'yx-util': {
-      type: 'yx-util',
+      type: 'confirm',
       message: 'Use youxuan utils'
     },
     sensor: {
-      type: 'sensor',
+      type: 'confirm',
       message: 'Use sensor'
     },
     lint: {
