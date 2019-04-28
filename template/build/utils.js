@@ -28,10 +28,17 @@ exports.cssLoaders = function (options) {
       sourceMap: options.sourceMap
     }
   }
-
+  {{#isMobile}}
+  const px2remLoader = {
+    loader: 'px2rem-loader',
+    options: {
+      remUnit: 37.5 //设计稿宽度/10
+    }
+  }
+  {{/isMobile}}
   // generate loader string to be used with extract text plugin
   function generateLoaders (loader, loaderOptions) {
-    const loaders = options.usePostCSS ? [cssLoader, postcssLoader] : [cssLoader]
+    const loaders = options.usePostCSS ? [cssLoader, postcssLoader, {{#isMobile}}px2remLoader{{/isMobile}}] : [cssLoader, {{#isMobile}}px2remLoader{{/isMobile}}]
 
     if (loader) {
       loaders.push({
