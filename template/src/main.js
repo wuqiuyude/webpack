@@ -16,7 +16,7 @@ Vue.use(Vuex){{#if_eq lintConfig "airbnb"}};{{/if_eq}}
 {{#yx-vue-ui}} 
 import YxUi from 'yx-vue-ui-lib'
 Vue.use(YxUi)
-{{#/yx-vue-ui}}
+{{/yx-vue-ui}}
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
