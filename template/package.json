@@ -125,7 +125,7 @@
     "webpack-dev-server": "^2.9.1",
     "webpack-merge": "^4.1.0"{{#isMobile}},
     "px2rem-loader": "^0.1.9",
-    "postcss-px2rem": "^0.3.0"{{/isMobile}}{{#scss}},,
+    "postcss-px2rem": "^0.3.0"{{/isMobile}}{{#scss}},
     "sass-resources-loader": "^2.0.0",
     "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0"{{/scss}},
