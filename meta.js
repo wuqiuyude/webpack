@@ -216,7 +216,7 @@ module.exports = {
     'test/unit/setup.js': "unit && runner === 'jest'",
     'test/e2e/**/*': 'e2e',
     'src/router/**/*': 'router',
-    'src/vuex/store.js': 'vuex',
+    'src/vuex/*': 'vuex',
     'src/style/_variables.scss': 'scss',
     'src/utils/request.js': 'axios',
     'src/utils/index.js': 'sensor',
