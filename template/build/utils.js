@@ -112,7 +112,7 @@ exports.createNotifierCallback = () => {
     })
   }
 }
-{{#if_eq appTypw "multipage"}}
+{{#if_eq appType "multipage"}}
 exports.getEntries = function (globPath) {
   var entries = {}
   if (globPath.indexOf('.js') >= 0) {
