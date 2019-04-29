@@ -221,7 +221,7 @@ module.exports = {
     'src/utils/request.js': 'axios',
     'src/utils/index.js': 'sensor',
     'src/pages/*': "appType === 'spa'",
-    'src/module/index/*': "appType === 'mutilpage'"
+    'src/module/**/*': "appType === 'multipage'"
   },
   complete: function(data, { chalk }) {
     const green = chalk.green
