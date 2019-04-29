@@ -220,7 +220,7 @@ module.exports = {
     'src/style/_variables.scss': 'scss',
     'src/utils/request.js': 'axios',
     'src/utils/index.js': 'sensor',
-    'src/pages/**/*': "appType === 'spa'",
+    'src/pages/*': "appType === 'spa'",
     'src/module/**/*': "appType === 'mutilpage'"
   },
   complete: function(data, { chalk }) {
