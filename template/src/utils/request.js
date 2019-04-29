@@ -17,10 +17,6 @@ function getHeaders() {
 }
 
 instance.interceptors.request.use(config => {
-    const token = token
-    if (token) {
-        config.headers.token = token
-    }
     return config
 }, err => {
     return Promise.reject(err.msg)
@@ -80,7 +76,7 @@ function handleError(error) {
 function handleResponse (res) {
     try {
         const r = JSON.parse(res)
-        if (r.code == 200) {
+        if (r.code === 200) {
             return r
         } else {
             throw r
