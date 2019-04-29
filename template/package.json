@@ -130,6 +130,10 @@
     "node-sass": "^4.11.0",
     "sass-loader": "^7.1.0"{{/scss}},
     "babel-polyfill": "^6.26.0"
+    {{#if_eq appType "multipage"}},
+    "glob": "^7.1.3"
+    {{/if_eq}}
+
   },
   "engines": {
     "node": ">= 6.0.0",
